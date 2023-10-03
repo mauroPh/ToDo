@@ -11,19 +11,19 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_task")
-public class TaskEntity implements Serializable{
+public class TaskEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-    private String description;
-    private boolean completed;
+	private String description;
+	private boolean completed;
 
-    public TaskEntity() {
-    	
-    }
+	public TaskEntity() {
+
+	}
 
 	public TaskEntity(Long id, String description, boolean completed) {
 		super();
