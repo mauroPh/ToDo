@@ -24,15 +24,12 @@ public class User implements Serializable {
     private String Password;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd   'T' HH : mm:ss'Z'", timezone = "GMT")
-
     private Instant createdOn;
     private String createdBy;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd   'T' HH : mm:ss'Z'", timezone = "GMT")
-
     private Instant modifiedOn;
     private String modifiedBy;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd   'T' HH : mm:ss'Z'", timezone = "GMT")
-
     private Instant lastLogin;
     private String imageUrl;
     private String profileId;

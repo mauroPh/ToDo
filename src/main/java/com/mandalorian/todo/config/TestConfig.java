@@ -5,7 +5,9 @@ import java.util.Arrays;
 
 import com.mandalorian.todo.entities.ToDo;
 import com.mandalorian.todo.entities.User;
+import com.mandalorian.todo.entities.UserProfile;
 import com.mandalorian.todo.repositories.ToDoRepository;
+import com.mandalorian.todo.repositories.UserProfileRepository;
 import com.mandalorian.todo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -20,6 +22,9 @@ public class TestConfig implements CommandLineRunner{
 	private ToDoRepository toDoRepository;
 	@Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private UserProfileRepository profileRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -36,9 +41,15 @@ public class TestConfig implements CommandLineRunner{
 		ToDo t2 = new ToDo( 2L,"Estudar Java",Instant.parse("2023-10-20T19:53:07Z"),null,Instant.parse("2021-09-20T19:53:07Z"),null,"ToDo",null,null);
 		ToDo t3 = new ToDo( 3L,"Estudar React",Instant.parse("2023-09-20T19:53:07Z"),null,Instant.parse("2021-09-20T19:53:07Z"),null,"ToDo",null,null);
 
+		UserProfile p1 = new UserProfile(1L,"admin", Instant.parse("2023-07-20T19:53:07Z"), "Senku Ishigami",Instant.parse("2023-07-20T19:53:07Z"),"Senku Ishigami");
+		UserProfile p2 = new UserProfile(2L,"client", Instant.parse("2023-07-20T19:53:07Z"), "Senku Ishigami",Instant.parse("2023-07-20T19:53:07Z"),"Senku Ishigami");
+
+
 		userRepository.saveAll(Arrays.asList(u1, u2, u3));
 		toDoRepository.saveAll(Arrays.asList(t1,t2,t3));
-		
+		profileRepository.saveAll(Arrays.asList(p1, p2));
+
+
 	}
 	
 	

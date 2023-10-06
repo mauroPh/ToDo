@@ -22,17 +22,13 @@ public class ToDo implements Serializable {
     private String description;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd   'T' HH : mm:ss'Z'", timezone = "GMT")
-
     private Instant createdOn;
-    @Nullable
-    private String createdBy;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd   'T' HH : mm:ss'Z'", timezone = "GMT")
 
+    private Long createdBy;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd   'T' HH : mm:ss'Z'", timezone = "GMT")
     private Instant modifiedOn;
-    @Nullable
-    private String modifiedBy;
+    private Long modifiedBy;
     private String state;
-    @Nullable
     private String imageUrl;
 
     @ManyToOne
@@ -43,7 +39,7 @@ public class ToDo implements Serializable {
 
     }
 
-    public ToDo(Long todoId, String description, Instant createdOn, @Nullable String createdBy, Instant modifiedOn, @Nullable String modifiedBy, String state, @Nullable String imageUrl, User todoUser) {
+    public ToDo(Long todoId, String description, Instant createdOn, Long createdBy, Instant modifiedOn,Long modifiedBy, String state, String imageUrl, User todoUser) {
         this.todoId = todoId;
         this.description = description;
         this.createdOn = createdOn;
@@ -79,12 +75,11 @@ public class ToDo implements Serializable {
         this.createdOn = createdOn;
     }
 
-    @Nullable
-    public String getCreatedBy() {
+    public Long getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@Nullable String createdBy) {
+    public void setCreatedBy(Long createdBy) {
         this.createdBy = createdBy;
     }
 
@@ -96,12 +91,11 @@ public class ToDo implements Serializable {
         this.modifiedOn = modifiedOn;
     }
 
-    @Nullable
-    public String getModifiedBy() {
+    public Long getModifiedBy() {
         return modifiedBy;
     }
 
-    public void setModifiedBy(@Nullable String modifiedBy) {
+    public void setModifiedBy(Long modifiedBy) {
         this.modifiedBy = modifiedBy;
     }
 
